@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+<script src="js/angular.js"></script>
+<script src="js/script7.js"></script>
+</head>
+<body class="container">
+	<div ng-controller="myController">
+	<h2>Working with filter: formatting, sorting, filter data</h2><hr />
+	<input type="number" ng-model="n" min="1" max="5"/><br /><br />
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date Of Birth</th>
+					<th>Gender</th>
+					<th>Salary(Number)</th>
+					<th>Salary(Currency)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="emp in employees | limitTo:n">
+					<td>{{emp.name | uppercase}}</td>
+					<td>{{emp.dob | date:"dd-MMMM-yyyy"}}</td>
+					<td>{{emp.gender | lowercase}}</td>
+					<td>{{emp.salary | number:2}}</td>
+					<td>{{emp.salary | currency:"TK-"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
